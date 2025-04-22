@@ -5,7 +5,7 @@ Este código implementa la multiplicación de dos matrices de 3x3 en lenguaje en
 ## 🧱 Estructura
 
 - Matrices A y B definidas en la sección `.data`.
-- Multiplicación implementada en tres bucles anidados (i, j, k).
+- Multiplicación implementada en tres bucles anidados (`fils`, `cols` y `prods`), además de otras secciones auxiliares para la impresión de la matriz resultado.
 - La matriz resultado C se almacena en memoria y se imprime en consola (para simulador online `ripes.me`).
 
 ## 📸 Resultado
