@@ -1,0 +1,25 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+D:/Documents/Tec/Profesional/4to\ Semestre/TE2003B\ Diseno\ de\ sistemas\ en\ chip/Ex\ RISC-V/RISC-V_SingleCycle {D:/Documents/Tec/Profesional/4to Semestre/TE2003B Diseno de sistemas en chip/Ex RISC-V/RISC-V_SingleCycle/main_decoder.v}
+vlog -vlog01compat -work work +incdir+D:/Documents/Tec/Profesional/4to\ Semestre/TE2003B\ Diseno\ de\ sistemas\ en\ chip/Ex\ RISC-V/RISC-V_SingleCycle {D:/Documents/Tec/Profesional/4to Semestre/TE2003B Diseno de sistemas en chip/Ex RISC-V/RISC-V_SingleCycle/alu_decoder.v}
+vlog -vlog01compat -work work +incdir+D:/Documents/Tec/Profesional/4to\ Semestre/TE2003B\ Diseno\ de\ sistemas\ en\ chip/Ex\ RISC-V/RISC-V_SingleCycle {D:/Documents/Tec/Profesional/4to Semestre/TE2003B Diseno de sistemas en chip/Ex RISC-V/RISC-V_SingleCycle/register_file.v}
+vlog -vlog01compat -work work +incdir+D:/Documents/Tec/Profesional/4to\ Semestre/TE2003B\ Diseno\ de\ sistemas\ en\ chip/Ex\ RISC-V/RISC-V_SingleCycle {D:/Documents/Tec/Profesional/4to Semestre/TE2003B Diseno de sistemas en chip/Ex RISC-V/RISC-V_SingleCycle/ALU.v}
+vlog -vlog01compat -work work +incdir+D:/Documents/Tec/Profesional/4to\ Semestre/TE2003B\ Diseno\ de\ sistemas\ en\ chip/Ex\ RISC-V/RISC-V_SingleCycle {D:/Documents/Tec/Profesional/4to Semestre/TE2003B Diseno de sistemas en chip/Ex RISC-V/RISC-V_SingleCycle/data_memory.v}
+vlog -vlog01compat -work work +incdir+D:/Documents/Tec/Profesional/4to\ Semestre/TE2003B\ Diseno\ de\ sistemas\ en\ chip/Ex\ RISC-V/RISC-V_SingleCycle {D:/Documents/Tec/Profesional/4to Semestre/TE2003B Diseno de sistemas en chip/Ex RISC-V/RISC-V_SingleCycle/extend.v}
+vlog -vlog01compat -work work +incdir+D:/Documents/Tec/Profesional/4to\ Semestre/TE2003B\ Diseno\ de\ sistemas\ en\ chip/Ex\ RISC-V/RISC-V_SingleCycle {D:/Documents/Tec/Profesional/4to Semestre/TE2003B Diseno de sistemas en chip/Ex RISC-V/RISC-V_SingleCycle/control_unit.v}
+vlog -vlog01compat -work work +incdir+D:/Documents/Tec/Profesional/4to\ Semestre/TE2003B\ Diseno\ de\ sistemas\ en\ chip/Ex\ RISC-V/RISC-V_SingleCycle {D:/Documents/Tec/Profesional/4to Semestre/TE2003B Diseno de sistemas en chip/Ex RISC-V/RISC-V_SingleCycle/singleCycleTop.v}
+vlog -vlog01compat -work work +incdir+D:/Documents/Tec/Profesional/4to\ Semestre/TE2003B\ Diseno\ de\ sistemas\ en\ chip/Ex\ RISC-V/RISC-V_SingleCycle {D:/Documents/Tec/Profesional/4to Semestre/TE2003B Diseno de sistemas en chip/Ex RISC-V/RISC-V_SingleCycle/instruction_memory.v}
+
+vlog -sv -work work +incdir+D:/Documents/Tec/Profesional/4to\ Semestre/TE2003B\ Diseno\ de\ sistemas\ en\ chip/Ex\ RISC-V/RISC-V_SingleCycle {D:/Documents/Tec/Profesional/4to Semestre/TE2003B Diseno de sistemas en chip/Ex RISC-V/RISC-V_SingleCycle/singleCycleTop_tb.sv}
+
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  singleCycleTop_tb
+
+add wave *
+view structure
+view signals
+run -all

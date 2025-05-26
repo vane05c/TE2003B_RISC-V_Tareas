@@ -1,0 +1,11 @@
+module singleCycleTop (
+	input clk
+);
+
+	wire [31:0] PCTarget, PCPlus4, Instr;
+	wire [31:0] PCNext=PCSrc?PCTarget:PCPlus4;
+	reg [31:0] PC;
+	
+	always @(posedge clk)
+
+endmodule

@@ -1,0 +1,17 @@
+`timescale 1ns/100ps
+
+module singleCycleTop_tb();
+
+	reg clk;
+	
+	singleCycleTop DUT(
+		.clk(clk)
+	);
+	
+	always #1 clk = ~clk;
+	
+	initial begin
+		
+	end
+	
+endmodule
